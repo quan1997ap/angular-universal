@@ -1,0 +1,18 @@
+https://mdbootstrap.com/docs/angular/getting-started/angular-universal/
+
+
+1. gen-app
+ng new angular-universal
+ng add @nguniversal/express-engine --clientProject angular-universal
+
+2. install package
+npm install --save @angular/platform-server @nguniversal/module-map-ngfactory-loader ts-loader@4.0.0 express webpack-node-externals
+
+3.angular.json
+"build:client-and-server-bundles": "ng build --prod && ng run project-name:server:production",
+"webpack:server": "webpack --config webpack.server.config.js --progress --colors",
+"build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
+"serve:ssr": "node dist/server"
+
+4.
+npm run build:ssr && npm run serve:ssr
